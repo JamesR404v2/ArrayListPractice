@@ -16,14 +16,15 @@ public class UpdateItem
     {
         System.out.println("The list currently contains these items");
 //      call to display current items
-        DisplayItem displayItem = new DisplayItem(list);
-        displayItem.displayList();
+        DisplayList displayList = new DisplayList(list);
+        displayList.displayList();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the index of the item to update:");
         try
         {
             int index = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Enter the new value for the item:");
             String newValue = scanner.nextLine();
             list.set(index, newValue);

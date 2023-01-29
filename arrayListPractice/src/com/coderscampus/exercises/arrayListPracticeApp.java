@@ -1,6 +1,7 @@
 package com.coderscampus.exercises;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class arrayListPracticeApp
@@ -33,7 +34,12 @@ public class arrayListPracticeApp
 
 //            Take user choice and launch appropriate CRUD option.
 
-            int choice = scanner.nextInt();
+            int choice = 0;
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException exception) {
+                System.out.println("Try again, but typing one of the numbers for a valid choice:");
+            }
             switch (choice) {
                 case 1:
                     AddItem addItem = new AddItem(list);
@@ -44,8 +50,8 @@ public class arrayListPracticeApp
                     updateItem.updateItemInList();
                     break;
                 case 3:
-                    DisplayItem displayItem = new DisplayItem(list);
-                    displayItem.displayList();
+                    DisplayList displayList = new DisplayList(list);
+                    displayList.displayList();
                     break;
                 case 4:
                     DeleteItem deleteItem = new DeleteItem(list);
